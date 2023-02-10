@@ -13,11 +13,11 @@ function processHeader(header) {
 
 async function FetchHtml(url) {
 	try {
-		const res = await fetch(url);
+		const res = await fetch(url, {method: 'GET', mode: 'no-cors'});
 		const html = await res.text();
 		return html;
 	} catch (err) {
-		console.error(err);
+		console.error(`an error has occurred while fetching "${url}":\n${err}`);
 		return err;
 	}
 }
@@ -29,7 +29,7 @@ let data;
 FetchHtml(wikipediaPage)
   .then(html => {
     data = html;
-	console.log(data)
+	document.body.innerHTML = data;
   })
   .catch(error => {
     console.error("An error occurred:", error);
