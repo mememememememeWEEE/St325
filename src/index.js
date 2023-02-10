@@ -1,15 +1,19 @@
 //do not pass the "<header>" tag;
-function processHeader(header) {
-	header.split(`/>`).forEach(line => {
-		console.log(line.slice(1, 4) + '\n');
-		if (line.slice(1, 21) == `link rel="stylesheet"`) {
-			console.log("it is stylesheet reference")
-		} else if (line.slice(1, 6) == `script`) {
-			console.log("it is script reference")
-		};
-	});
-};
+// function processHeader(header) {
+// 	header.split(`/>`).forEach(line => {
+// 		console.log(line.slice(1, 4) + '\n');
+// 		if (line.slice(1, 21) == `link rel="stylesheet"`) {
+// 			console.log("it is stylesheet reference")
+// 		} else if (line.slice(1, 6) == `script`) {
+// 			console.log("it is script reference")
+// 		};
+// 	});
+// };
 
+function FetchDependency(html) {
+	const parser = new DOMParser().parseFromString(html, 'text/html');
+	const CSSLinks = parser.head.getElementsByTagName('link');
+}
 
 async function FetchHtml(url) {
 	try {
