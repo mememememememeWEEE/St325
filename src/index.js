@@ -12,7 +12,7 @@ const processHeader = (header) => {
 
 
 
-const fetchHtml = (URL) => {
+function FetchHtml(URL) {
 	return fetch(URL)
 		.then((response) => response.text())
 		.then((data) => {
@@ -23,4 +23,4 @@ const fetchHtml = (URL) => {
 	});
 }
 
-const list =  fetchHtml('https://en.wikipedia.org/wiki/Cricket_World_Cup')
+const list =  FetchHtml('https://en.wikipedia.org/wiki/FIFA_World_Cup')
