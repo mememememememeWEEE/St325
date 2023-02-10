@@ -1,5 +1,5 @@
 //do not pass the "<header>" tag;
-const processHeader = (header) => {
+function processHeader(header) {
 	header.split(`/>`).forEach(line => {
 		console.log(line.slice(1, 4) + '\n');
 		if (line.slice(1, 21) == `link rel="stylesheet"`) {
@@ -23,4 +23,4 @@ function FetchHtml(URL) {
 	});
 }
 
-const list =  FetchHtml('https://en.wikipedia.org/wiki/FIFA_World_Cup')
+FetchHtml('https://en.wikipedia.org/wiki/FIFA_World_Cup');
