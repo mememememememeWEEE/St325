@@ -13,7 +13,7 @@ function processHeader(header) {
 
 async function FetchHtml(url) {
 	try {
-		const res = await fetch(url, {method: 'GET', mode: 'no-cors'});
+		const res = await fetch(url);
 		const html = await res.text();
 		return html;
 	} catch (err) {
@@ -29,6 +29,7 @@ let data;
 FetchHtml(wikipediaPage)
   .then(html => {
     data = html;
+	console.log();
 	document.body.innerHTML = data;
   })
   .catch(error => {
